@@ -1,37 +1,38 @@
 //Государство
 package ru.marinatimosh.app.model;
 
+import ru.marinatimosh.app.controller.DataGenerator;
+
+import static ru.marinatimosh.app.controller.DataGenerator.*;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class Country {
     private static final Country INSTANCE = new Country();
     private final String name;
-    private  final  int area;
-
-    private List<Citizen> citizens = new ArrayList<>();
-
+    private final int area;
     private final String capital;
-    private List<Region> regions = new ArrayList<>();
-    private List<District> districts = new ArrayList<>();
-    private List<City> cities = new ArrayList<>();
-
-
-    //добавить поля с областями
+    private List<Citizen> citizens = new ArrayList<>();
+    private List<Region> regions;
+    private List<District> districts;
+    private List<City> cities;
 
 
     private Country() {
         this.name = "Spain";
         this.capital = "Madrid";
         this.area = 506030;
-        //добавить объекты регионов и засунуть в лист regions
+        this.cities = generateCities();
+        this.regions = generateRegions();
+        this.districts = generateDistricts();
     }
 
     public static Country getInstance() {
         return INSTANCE;
     }
 
-    public String getName() {
+    public String getCountryName() {
         return name;
     }
 
@@ -43,6 +44,10 @@ public class Country {
         this.citizens = citizens;
     }
 
+    public List<City> getCities() {
+        return cities;
+    }
+
     public String getCapital() {
         return capital;
     }
@@ -52,27 +57,12 @@ public class Country {
         return regions;
     }
 
-    public void setRegions(List<Region> regions) {
-        this.regions = regions;
-    }
-
-    public List<City> getCities() {
-        return cities;
-    }
-
-    public void setCities(List<City> cities) {
-        this.cities = cities;
-    }
 
     public List<District> getDistricts() {
         return districts;
     }
 
-    public void setDistricts(List<District> districts) {
-        this.districts = districts;
-    }
-
-    public int getArea() {
+    public int getCountryArea() {
         return area;
     }
 }

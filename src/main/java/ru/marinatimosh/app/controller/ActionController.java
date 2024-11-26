@@ -1,55 +1,69 @@
 package ru.marinatimosh.app.controller;
 
-import ru.marinatimosh.app.model.Citizen;
-import ru.marinatimosh.app.repository.CitizenRepository;
-import ru.marinatimosh.app.repository.CityRepository;
-import ru.marinatimosh.app.service.CitizenService;
-import ru.marinatimosh.app.service.CityService;
+import ru.marinatimosh.app.model.City;
+import ru.marinatimosh.app.model.District;
+import ru.marinatimosh.app.model.Region;
+import ru.marinatimosh.app.service.Service;
 
 import java.util.List;
 
 
 public class ActionController {
-    private CitizenService citizenService;
-    private CityService cityService;
+    private final Service service = Service.getInstance();
+    private static final ActionController INSTANCE = new ActionController();
 
-    public ActionController(CitizenRepository citizenRepository) {
-        citizenService = new CitizenService(citizenRepository);
+    public static ActionController getInstance() {
+        return INSTANCE;
     }
 
-    public ActionController(CityRepository cityRepository) {
-        cityService = new CityService(cityRepository);
+    private ActionController() {
     }
 
-    public ActionController() {
-
-    }
-
-    public void createCitizen(int count) {
+ /*   public void createCitizen(int count) {
         for (int i = 0; i < count; i++) {
             citizenService.createCitizen();
         }
-    }
+    }*/
 
-    public List<Citizen> getCitizen() {
+/*    public List<Citizen> getCitizen() {
         return citizenService.getCitizen();
 
     }
 
-    public List<Citizen> countCitizen() {
+    public int getCitizensAmount() {
         return citizenService.countCitizen();
     }
 
     public int countAverageCitizenAge() {
         return citizenService.countAverageCitizenAge();
+    }*/
+
+
+    public String getCountryName() {
+        return service.getCountryName();
     }
 
-
-    public String[] getCity() {
-        return cityService.getCity();
+    public String getCapital() {
+        return service.getCapital();
     }
 
-    public void printCityNames() {
+    public List<City> getCities() {
+        return service.getCities();
+    }
+
+    public List<Region> getRegions() {
+        return service.getRegions();
+    }
+
+    public List<District> getDistricts() {
+        return service.getDistricts();
+    }
+
+    public int getCountryArea() {
+        return service.getCountryArea();
+    }
+
+    /*public void printCityNames() {
         System.out.println("Cities in Spain:");
         String[] cities = cityService.getCity(); // Получаем массив городов один раз
 
@@ -58,10 +72,7 @@ public class ActionController {
         }
 
         System.out.println("Total number of cities: " + cities.length); // Используем длину массива
-    }
-
-
-
+    }*/
 
 
 }
