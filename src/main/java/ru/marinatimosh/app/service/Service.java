@@ -6,7 +6,9 @@ import ru.marinatimosh.app.model.District;
 import ru.marinatimosh.app.model.Region;
 import ru.marinatimosh.app.repository.Repository;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 public class Service {
     private final Repository repository = Repository.getInstance();
@@ -64,6 +66,30 @@ public class Service {
         }
 
         return (int) sum / citizens.size();
+    }
+
+
+    public List<Citizen> findCitizensByFirstLetter(String letter) {
+        List<Citizen> citizens = repository.getCitizens();
+
+        // Проверяем, есть ли граждане
+        if (citizens == null || citizens.isEmpty()) {
+            return new ArrayList<>(); // Возвращаем пустой список, если нет граждан
+        }
+
+        List<Citizen> result = new ArrayList<>(); // Список, в который будем добавлять подходящих граждан
+
+        for (Citizen citizen : citizens) { // Перебираем всех граждан
+            if (citizen.getName().startsWith(letter)) { // Проверяем, начинается ли имя с заданной буквы
+                result.add(citizen); // Добавляем гражданина в результат
+            }
+        }
+
+        if (result.isEmpty()) {
+            throw new NoSuchElementException("Такие имена не найдены");
+        }
+
+        return result; // Возвращаем список найденных граждан
     }
 
 

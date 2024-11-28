@@ -58,5 +58,8 @@ public class ActionController {
     public int getAverageAgeCitizen() {
         return service.getAverageAgeCitizen();
     }
+    public List<Citizen> findCitizensByFirstLetter(String letter) {
+        return service.findCitizensByFirstLetter(letter);
+    }
 
 }

@@ -24,6 +24,9 @@ public class Citizen {
         this.country = country;
     }
 
+    public String getName() {
+        return name;
+    }
 
     public int getAge() {
         return age;

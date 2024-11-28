@@ -51,7 +51,8 @@ public class GeneralView {
                 case 7:
                     System.out.println("Введите букву для поиска граждан:");
                     String letter = scanner.next();
-                    // не забыть добавить в логику поиск по букве + сортировка
+                    System.out.println("Список граждан на букву " + letter);
+                    System.out.println(actionController.findCitizensByFirstLetter(letter));
                     break;
                 case 8:
                     System.out.println("Выход из программы.");
