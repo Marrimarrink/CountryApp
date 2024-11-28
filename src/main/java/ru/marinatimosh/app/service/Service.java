@@ -72,16 +72,16 @@ public class Service {
     public List<Citizen> findCitizensByFirstLetter(String letter) {
         List<Citizen> citizens = repository.getCitizens();
 
-        // Проверяем, есть ли граждане
+
         if (citizens == null || citizens.isEmpty()) {
-            return new ArrayList<>(); // Возвращаем пустой список, если нет граждан
+            return new ArrayList<>();
         }
 
-        List<Citizen> result = new ArrayList<>(); // Список, в который будем добавлять подходящих граждан
+        List<Citizen> result = new ArrayList<>();
 
-        for (Citizen citizen : citizens) { // Перебираем всех граждан
-            if (citizen.getName().startsWith(letter)) { // Проверяем, начинается ли имя с заданной буквы
-                result.add(citizen); // Добавляем гражданина в результат
+        for (Citizen citizen : citizens) {
+            if (citizen.getName().startsWith(letter)) {
+                result.add(citizen);
             }
         }
 
@@ -89,7 +89,7 @@ public class Service {
             throw new NoSuchElementException("Такие имена не найдены");
         }
 
-        return result; // Возвращаем список найденных граждан
+        return result;
     }
 
 
