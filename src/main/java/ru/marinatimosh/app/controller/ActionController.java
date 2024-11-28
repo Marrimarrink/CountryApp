@@ -1,5 +1,6 @@
 package ru.marinatimosh.app.controller;
 
+import ru.marinatimosh.app.model.Citizen;
 import ru.marinatimosh.app.model.City;
 import ru.marinatimosh.app.model.District;
 import ru.marinatimosh.app.model.Region;
@@ -19,25 +20,16 @@ public class ActionController {
     private ActionController() {
     }
 
- /*   public void createCitizen(int count) {
+
+    public void createCitizen(int count) {
         for (int i = 0; i < count; i++) {
-            citizenService.createCitizen();
+            service.createCitizen();
         }
-    }*/
-
-/*    public List<Citizen> getCitizen() {
-        return citizenService.getCitizen();
-
     }
 
-    public int getCitizensAmount() {
-        return citizenService.countCitizen();
+    public List<Citizen> getCitizens() {
+        return service.getCitizens();
     }
-
-    public int countAverageCitizenAge() {
-        return citizenService.countAverageCitizenAge();
-    }*/
-
 
     public String getCountryName() {
         return service.getCountryName();
@@ -63,16 +55,8 @@ public class ActionController {
         return service.getCountryArea();
     }
 
-    /*public void printCityNames() {
-        System.out.println("Cities in Spain:");
-        String[] cities = cityService.getCity(); // Получаем массив городов один раз
-
-        for (String city : cities) {
-            System.out.println(city);
-        }
-
-        System.out.println("Total number of cities: " + cities.length); // Используем длину массива
-    }*/
-
+    public int getAverageAgeCitizen() {
+        return service.getAverageAgeCitizen();
+    }
 
 }

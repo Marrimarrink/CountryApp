@@ -18,6 +18,9 @@ public class Service {
 
     private Service() {
     }
+    public List<Citizen> getCitizens() {
+        return repository.getCitizens();
+    }
 
     public String getCountryName() {
         return repository.getCountryName();
@@ -43,41 +46,15 @@ public class Service {
         return repository.getCountryArea();
     }
 
-//Исправить метод
-/*    public void save(Citizen citizen) {
-        citizen.setCountry(country);
-        citizens.add(citizen);
-    }*/
-
-
-  /*  public void createCitizen() {
+    public void createCitizen() {
         Citizen citizen = new Citizen();
         repository.addCitizen(citizen);
-    }*/
-
- /*   public List<Citizen> getCitizens() {
-        return repository.getCitizens();
-    }*/
-
-
-
-  /*  public void createCitizen() {
-        Citizen citizen = new Citizen();
-        citizenRepository.save(citizen);
     }
 
-    public List<Citizen> getCitizen() {
-        return citizenRepository.getCitizens();
-    }
+    public int getAverageAgeCitizen() {
+        List<Citizen> citizens = repository.getCitizens();
 
-    public List<Citizen> countCitizen() {
-        return citizenRepository.getCitizens();
-    }
-
-    public int countAverageCitizenAge() {
-        List<Citizen> citizens = citizenRepository.getCitizens();
-
-        if (citizens.isEmpty()) {
+        if (citizens == null || citizens.isEmpty()) {
             return 0;
         }
 
@@ -88,7 +65,7 @@ public class Service {
 
         return (int) sum / citizens.size();
     }
-    */
+
 
 
 }

@@ -16,6 +16,10 @@ public class Repository {
     private Repository() {
     }
 
+    public List<Citizen> getCitizens() {
+        return country.getCitizens();
+    }
+
     public String getCountryName() {
         return country.getCountryName();
     }
@@ -40,21 +44,7 @@ public class Repository {
         return country.getCountryArea();
     }
 
-//Исправить метод
-    /*  public void addCitizen(Citizen citizen) {
+    public void addCitizen(Citizen citizen) {
         country.addCitizen(citizen);
-    }*/
-
-//Переписать метод
-/*    public void save(Citizen citizen) {
-        citizen.setCountry(country);
-        citizens.add(citizen);
-    }*/
-
-
-    public List<Citizen> getCitizens() {
-        return country.getCitizens();
     }
-
-
 }

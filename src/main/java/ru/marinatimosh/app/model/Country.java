@@ -40,9 +40,14 @@ public class Country {
         return citizens;
     }
 
+    public void addCitizen(Citizen citizen) {
+        citizens.add(citizen);
+    }
+
     public void setCitizens(List<Citizen> citizens) {
         this.citizens = citizens;
     }
+
 
     public List<City> getCities() {
         return cities;
