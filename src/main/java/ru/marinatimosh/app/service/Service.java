@@ -20,6 +20,7 @@ public class Service {
 
     private Service() {
     }
+
     public List<Citizen> getCitizens() {
         return repository.getCitizens();
     }
@@ -91,7 +92,6 @@ public class Service {
 
         return result;
     }
-
 
 
 }
